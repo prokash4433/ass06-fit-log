@@ -4,7 +4,8 @@ import logo from '@/assets/logo.png';
 
 const Navbar = () => {
           return (
-          <div className="w-full border-b border-neutral-800 bg-[#0d0f12]">
+                    <nav className=" bg-[#0d0f12] border-b border-neutral-800">
+          <div className=" navbar container mx-auto">
                     <div className="navbar min-h-[68px] px-3 sm:px-5 lg:px-8">
 
                                {/* LEFT */}
@@ -63,9 +64,9 @@ const Navbar = () => {
                      <div className="navbar-center hidden lg:flex">
                      <div className="flex items-center gap-1    p-1">
 
-                    <button className=" rounded-full   px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800] ">Workout</button>
+                    <button className=" rounded-full   px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800] cursor-pointer">Workout</button>
 
-                    <button className=" rounded-full   px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800] ">My Plan</button>
+                    <button className=" rounded-full   px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800] cursor-pointer ">My Plan</button>
 
                     </div>
                     </div>
@@ -76,15 +77,15 @@ const Navbar = () => {
                     <div className="flex items-center gap-0 sm:gap-1">
 
                                         {/* Plan */}
-                    <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-3">
+                    <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-3 cursor-pointer">
                     <span>Plan</span>
 
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#c6ff00] text-[10px] font-bold text-black">0</span>
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#c6ff00] text-[10px] font-bold text-black cursor-pointer">0</span>
                     </button>
 
 
                                         {/* Saved */}
-                    <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800]  sm:px-3">
+                    <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800]  sm:px-3 cursor-pointer">
                     <span>Saved</span>
 
                     <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gray-600 text-[10px] text-gray-300">0</span>
@@ -95,6 +96,7 @@ const Navbar = () => {
 
                               </div>
                     </div>
+                    </nav>
           );
 };
 
