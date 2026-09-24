@@ -4,7 +4,7 @@ import LibraryCards from "../shared/LibraryCards";
 import { ILibrary } from "@/types/library.type";
 
 const getLibrary = async () => {
-          const res = await fetch("http://localhost:3001/data.json");
+          const res = await fetch("http://localhost:3000/data.json");
 
           if (!res.ok) {
                     throw new Error("Failed to fetch data");
@@ -21,7 +21,7 @@ const Library = async () => {
                               {/* Cards Grid */}
                               <h1 className="font-bold text-4xl ">THE LIBRARY</h1>
                               <p className="text-[#9CA3AF] mb-8">Twelve lifts covering every major muscle group.</p>
-                              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                              <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
                                
                                         {libraryData.map((library:ILibrary, id:number) => {
                                                   return <LibraryCards key={id} library={library} /> 

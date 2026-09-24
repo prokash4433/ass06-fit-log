@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 import logo from '@/assets/logo.png';
+import Link from 'next/link';
 
 const Navbar = () => {
           return (
-                    <nav className=" bg-[#0d0f12] border-b border-neutral-800">
+            <nav className="sticky top-0 z-50 bg-[#0d0f12] border-b border-neutral-800">
           <div className=" navbar container mx-auto">
                     <div className="navbar min-h-[68px] px-3 sm:px-5 lg:px-8">
 
@@ -64,9 +65,20 @@ const Navbar = () => {
                      <div className="navbar-center hidden lg:flex">
                      <div className="flex items-center gap-1    p-1">
 
-                    <button className=" rounded-full   px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800] cursor-pointer">Workout</button>
+                    
+                      <Link
+                        href="/workouts"
+                        className="cursor-pointer rounded-full px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800]"
+                      >
+                        Workout
+                      </Link>
 
-                    <button className=" rounded-full   px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800] cursor-pointer ">My Plan</button>
+                      <Link
+                        href="/my-plan"
+                        className="cursor-pointer rounded-full px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800]"
+                      >
+                        My Plan
+                      </Link>
 
                     </div>
                     </div>
