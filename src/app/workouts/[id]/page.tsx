@@ -1,4 +1,6 @@
  
+import AddButton from '@/Components/workutsDetails/AddButton';
+import SaveButton from '@/Components/workutsDetails/SaveButton';
 import { ILibrary } from '@/types/library.type';
 import Image from 'next/image';
 import React from 'react';
@@ -174,20 +176,17 @@ const WorkoutDetailsPage = async ({
               <div className="mt-6 flex flex-wrap gap-2">
 
                 {/* Add To Plan */}
-                <button
-                  className="flex items-center gap-2 rounded-lg bg-[#C2F800] px-4 py-2.5 text-[10px] font-bold text-black transition-all duration-300 hover:bg-[#1A2312] hover:text-[#C2F800]"
-                >
-                  <span>▣</span>
-                  Add to today's plan
-                </button>
+                <AddButton library={library}/>
 
                 {/* Save */}
-                <button
+                {/* <button
                   className="flex items-center gap-2 rounded-lg border border-[#30343d] px-4 py-2.5 text-[10px] font-medium text-[#a5a9b1] transition-all duration-300 hover:border-[#C2F800] hover:bg-[#1A2312] hover:text-[#C2F800]"
                 >
                   <span>♡</span>
                   Save for later
-                </button>
+                </button> */}
+
+                <SaveButton library={library} />
 
               </div>
 
