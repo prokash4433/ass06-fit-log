@@ -71,7 +71,7 @@ const WorkoutDetailsPage = async ({
               
               {/* Muscle Groups */}
               <div className="mt-3 flex flex-wrap gap-2">
-                {library.muscleGroups.map((muscle) => (
+                {library.muscleGroups.map((muscle:any) => (
                   <span
                     key={muscle}
                     className="rounded-full bg-[#C2F800] px-3 py-1 text-[9px] font-extrabold uppercase text-black"

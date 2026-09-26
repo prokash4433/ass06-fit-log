@@ -13,7 +13,7 @@ const AddButton = ({ library }: { library: ILibrary }) => {
     console.log('add workout triggered', library);
 
     const alreadyAdded = addWorkouts.some(
-      (workout) => workout.id === library.id
+      (workout:any) => workout.id === library.id
     );
 
     if (alreadyAdded) {

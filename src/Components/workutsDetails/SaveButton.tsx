@@ -12,7 +12,7 @@ const SaveButton = ({ library }: { library: ILibrary }) => {
                     console.log('add workout triggered', library);
 
                     
-                    const alreadySaved = savedlist.some((workout) => workout.id === library.id);
+                    const alreadySaved = savedlist.some((workout:any) => workout.id === library.id);
 
                     if (alreadySaved) {
                               toast.error(`Already "${library.name}" Saved in your later`);
