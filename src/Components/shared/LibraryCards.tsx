@@ -47,9 +47,9 @@ const LibraryCards = ({ library }: ILibraryCardsProps) => {
           {/* Watch Details Button */}
           <Link
             href={`/workouts/${library.id}`}
-            className="shrink-0 rounded-lg bg-[#b6ff00] px-3 py-2 text-[11px] font-bold text-black transition-all duration-300 hover:bg-[#1A2312] hover:text-[#C2F800]"
+            className="shrink-0 rounded-lg bg-[#b6ff00] px-3 py-2 text-[11px]  font-bold text-black transition-all duration-300 hover:bg-[#1A2312] hover:text-[#C2F800]"
           >
-            Watch Details
+            Watch Details               
           </Link>
 
         </div>

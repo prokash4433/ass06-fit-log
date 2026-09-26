@@ -1,24 +1,51 @@
-'use client'
+'use client';
 
 import React, { createContext, ReactNode, useState } from 'react';
- 
 
-export const WorkoutsContext = createContext({});
+import { toast } from 'react-toastify';
 
-const WorkoutsProvider = ({children}: {children: ReactNode}) => {
-const [addWorkouts, setAddWorkouts] = useState([]);
-const [savedlist, setSavedlist] = useState([]);
+import { ILibrary } from '@/types/library.type';
 
-const shareData = {
-          addWorkouts,
-          setAddWorkouts,
-          savedlist,
-          setSavedlist,
-};
+export const WorkoutsContext = createContext<any>({});
+
+const WorkoutsProvider = ({ children }: { children: ReactNode }) => {
+          const [addWorkouts, setAddWorkouts] = useState<ILibrary[]>([]);
+          const [savedlist, setSavedlist] = useState<ILibrary[]>([]);
+
+          const removeWorkout = (
+                    id: number,
+                    type: 'today' | 'saved'
+          ) => {
+                    if (type === 'today') {
+                              setAddWorkouts((prev) =>
+                                        prev.filter((workout) => workout.id !== id)
+                              );
+
+                              toast.success('Workout removed from Today list!');
+                    }
+
+                    if (type === 'saved') {
+                              setSavedlist((prev) =>
+                                        prev.filter((workout) => workout.id !== id)
+                              );
+
+                              toast.success('Workout removed from Saved list!');
+                    }
+          };
+
+          const shareData = {
+                    addWorkouts,
+                    setAddWorkouts,
+                    savedlist,
+                    setSavedlist,
+                    removeWorkout,
+          };
 
           return (
-                    <WorkoutsContext.Provider value = {shareData}>{children}</WorkoutsContext.Provider>
+                    <WorkoutsContext.Provider value={shareData}>
+                              {children}
+                    </WorkoutsContext.Provider>
           );
 };
 
-export default WorkoutsProvider; 
+export default WorkoutsProvider;

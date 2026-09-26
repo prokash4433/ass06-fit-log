@@ -1,20 +1,25 @@
 import { ILibrary } from '@/types/library.type';
+
 import Image from 'next/image';
+
 import Link from 'next/link';
- 
+
 import React from 'react';
 
+import RemoveButton from './RemoveButton';
+
 interface IListedWourkoutsCardsProps {
-          library: ILibrary
+          library: ILibrary;
+          type: 'today' | 'saved';
 }
 
-const ListedWorkoutsCards = ({ library }: IListedWourkoutsCardsProps ) => {
+const ListedWorkoutsCards = ({
+          library,
+          type,
+}: IListedWourkoutsCardsProps) => {
           return (
                     /* Workout Card */
-                    <div
-                              
-                              className="mb-4 w-full rounded-2xl border border-[#292c35] bg-[#15171d] p-3 sm:p-4"
-                    >
+                    <div className="mb-4 w-full rounded-2xl border border-[#292c35] bg-[#15171d] p-3 sm:p-4">
                               <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
 
                                         {/* Left Side - Image + Content */}
@@ -72,14 +77,14 @@ const ListedWorkoutsCards = ({ library }: IListedWourkoutsCardsProps ) => {
                                         <div className="flex w-full shrink-0 items-center gap-2 sm:gap-3 lg:w-auto">
 
                                                   {/* View Details */}
-                                                  <Link href={`/library/${library.id}`}> 
-                                                  <button
-                                                            type="button"
-                                                            className="flex-1 rounded-full border border-[#374151] px-3 py-2 text-xs text-white transition hover:bg-[#242730] sm:px-5 sm:text-sm lg:flex-none"
-                                                  >
-                                                            View Details
-                                                  </button>
-                                        </Link>
+                                                  <Link href={`/workouts/${library.id}`}>
+                                                            <button
+                                                                      type="button"
+                                                                      className="flex-1 rounded-full border px-3 py-2 text-xs text-black transition bg-[#b6ff00] hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-5 sm:text-sm lg:flex-none"
+                                                            >
+                                                                      View Details
+                                                            </button>
+                                                  </Link>
 
                                                   {/* Mark as Done */}
                                                   <button
@@ -91,12 +96,10 @@ const ListedWorkoutsCards = ({ library }: IListedWourkoutsCardsProps ) => {
                                                   </button>
 
                                                   {/* Remove */}
-                                                  <button
-                                                            type="button"
-                                                            className="shrink-0 px-1 text-xl text-gray-500 transition hover:text-white sm:text-2xl"
-                                                  >
-                                                            ×
-                                                  </button>
+                                                  <RemoveButton
+                                                            id={library.id}
+                                                            type={type}
+                                                  />
 
                                         </div>
                               </div>

@@ -91,11 +91,11 @@ const Navbar = () => {
                     <div className="flex items-center gap-0 sm:gap-1">
 
                                         {/* Plan */}
-                    {/* <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-3 cursor-pointer">
+                      {/* <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-3 cursor-pointer">
                     <span>Plan</span>
 
                     <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#c6ff00] text-[10px] font-bold text-black cursor-pointer">0</span>
-                    </button> */}
+                    </button> */}   
 
                       <WorkoutCount />
 
