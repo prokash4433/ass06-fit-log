@@ -73,7 +73,7 @@ const LibraryCards = ({ library }: ILibraryCardsProps) => {
           {/* Duration */}
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#b6ff00]/10 text-[#b6ff00]">
-              <span>⏱</span>
+              <span>◷</span>
             </div>
 
             <div>
@@ -90,7 +90,7 @@ const LibraryCards = ({ library }: ILibraryCardsProps) => {
           {/* Calories */}
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#b6ff00]/10 text-[#b6ff00]">
-              <span>🔥</span>
+              <span>♨</span>
             </div>
 
             <div>
@@ -107,7 +107,7 @@ const LibraryCards = ({ library }: ILibraryCardsProps) => {
           {/* Rating */}
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#b6ff00]/10 text-[#b6ff00]">
-              <span>⭐</span>
+              <span>☆</span>
             </div>
 
             <div>

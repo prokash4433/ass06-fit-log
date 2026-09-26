@@ -2,12 +2,14 @@ import Image from 'next/image';
 import React from 'react';
 import logo from '@/assets/logo.png';
 import Link from 'next/link';
+import WorkoutCount from './WorkoutCount';
+ 
 
 const Navbar = () => {
           return (
             <nav className="sticky top-0 z-50 bg-[#0d0f12] border-b border-neutral-800">
           <div className=" navbar container mx-auto">
-                    <div className="navbar min-h-[68px] px-3 sm:px-5 lg:px-8">
+                <div className="navbar min-h-[68px] px-2 sm:px-3 lg:px-4 ">
 
                                {/* LEFT */}
                      <div className="navbar-start">
@@ -89,19 +91,22 @@ const Navbar = () => {
                     <div className="flex items-center gap-0 sm:gap-1">
 
                                         {/* Plan */}
-                    <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-3 cursor-pointer">
+                    {/* <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-3 cursor-pointer">
                     <span>Plan</span>
 
                     <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#c6ff00] text-[10px] font-bold text-black cursor-pointer">0</span>
-                    </button>
+                    </button> */}
+
+                      <WorkoutCount />
+
 
 
                                         {/* Saved */}
-                    <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800]  sm:px-3 cursor-pointer">
+                    {/* <button className="flex items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800]  sm:px-3 cursor-pointer">
                     <span>Saved</span>
 
                     <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gray-600 text-[10px] text-gray-300">0</span>
-                                                            </button>
+                                                            </button> */}
 
                                                   </div>
                                         </div>

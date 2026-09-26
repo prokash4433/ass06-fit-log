@@ -179,12 +179,7 @@ const WorkoutDetailsPage = async ({
                 <AddButton library={library}/>
 
                 {/* Save */}
-                {/* <button
-                  className="flex items-center gap-2 rounded-lg border border-[#30343d] px-4 py-2.5 text-[10px] font-medium text-[#a5a9b1] transition-all duration-300 hover:border-[#C2F800] hover:bg-[#1A2312] hover:text-[#C2F800]"
-                >
-                  <span>♡</span>
-                  Save for later
-                </button> */}
+                 
 
                 <SaveButton library={library} />
 
