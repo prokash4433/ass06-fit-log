@@ -8,28 +8,23 @@ import React, { useContext, useMemo, useState } from 'react';
 
 type SortOption = 'calories' | 'rating' | 'duration';
 
-type TabType = 'today' | 'saved';
-
 const ListedWorkouts = () => {
   const { addWorkouts, savedlist } = useContext(WorkoutsContext);
 
   // Active tab
-  const [activeTab, setActiveTab] = useState<TabType>('today');
+  const [activeTab, setActiveTab] = useState<'today' | 'saved'>('today');
 
   // Sort option
-  const [sortBy, setSortBy] = useState<SortOption>('calories');
+  const [sortBy, setSortBy] =
+    useState<SortOption>('calories');
 
-  // =========================
-  // CURRENT ACTIVE WORKOUTS
-  // =========================
-
+  // Current tab data
   const currentWorkouts =
-    activeTab === 'today' ? addWorkouts : savedlist;
+    activeTab === 'today'
+      ? addWorkouts
+      : savedlist;
 
-  // =========================
-  // SORT WORKOUTS
-  // =========================
-
+  // Sort workouts
   const sortedWorkouts = useMemo(() => {
     return [...currentWorkouts].sort(
       (a: ILibrary, b: ILibrary) => {
@@ -41,26 +36,24 @@ const ListedWorkouts = () => {
           return b.rating - a.rating;
         }
 
-        return b.duration - a.duration;
+        if (sortBy === 'duration') {
+          return b.duration - a.duration;
+        }
+
+        return 0;
       }
     );
   }, [currentWorkouts, sortBy]);
 
-  // =========================
-  // DYNAMIC STATS
-  // =========================
-
-  // Total exercises
+  // Dynamic stats
   const totalExercises = currentWorkouts.length;
 
-  // Total minutes
   const totalMinutes = currentWorkouts.reduce(
     (total: number, workout: ILibrary) =>
       total + workout.duration,
     0
   );
 
-  // Total calories
   const totalCalories = currentWorkouts.reduce(
     (total: number, workout: ILibrary) =>
       total + workout.caloriesBurned,
@@ -70,9 +63,7 @@ const ListedWorkouts = () => {
   return (
     <div className="container mx-auto px-2 py-10 sm:px-3 lg:px-4">
 
-      {/* =========================
-          HEADER
-      ========================= */}
+      {/* Header */}
       <div className="mb-2">
         <h1 className="text-4xl font-bold text-white">
           MY PLAN
@@ -83,9 +74,7 @@ const ListedWorkouts = () => {
         </p>
       </div>
 
-      {/* =========================
-          DYNAMIC STATS
-      ========================= */}
+      {/* Stats */}
       <div className="stats mt-2 w-full rounded-2xl border border-[#292c35] bg-[#15171d] shadow-none">
 
         {/* Exercises */}
@@ -123,49 +112,16 @@ const ListedWorkouts = () => {
 
       </div>
 
-      {/* =========================
-          TABS + SORT
-      ========================= */}
-      <div className="flex flex-col gap-4 py-[30px] sm:flex-row sm:items-center sm:justify-between">
-
-        {/* Tabs */}
-        <div className="flex w-fit rounded-xl bg-[#15171d] p-1">
-
-          {/* Today's Plan */}
-          <button
-            type="button"
-            onClick={() => setActiveTab('today')}
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition ${activeTab === 'today'
-                ? 'bg-[#0d1016] text-lime-400'
-                : 'text-gray-400 hover:text-white'
-              }`}
-          >
-            Today's Plan
-          </button>
-
-          {/* Saved */}
-          <button
-            type="button"
-            onClick={() => setActiveTab('saved')}
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition ${activeTab === 'saved'
-                ? 'bg-[#0d1016] text-lime-400'
-                : 'text-gray-400 hover:text-white'
-              }`}
-          >
-            Saved
-          </button>
-
-        </div>
-
-        {/* =========================
-            SORT BY
-        ========================= */}
+      {/* Sort */}
+      <div className="flex justify-end py-5">
         <select
           value={sortBy}
           onChange={(e) =>
-            setSortBy(e.target.value as SortOption)
+            setSortBy(
+              e.target.value as SortOption
+            )
           }
-          className="w-full cursor-pointer rounded-xl border border-[#292c35] bg-[#15171d] px-4 py-3 text-sm text-white outline-none focus:border-lime-400 sm:w-[180px]"
+          className="w-full max-w-[220px] cursor-pointer rounded-xl border border-[#292c35] bg-[#15171d] px-4 py-3 text-sm text-white outline-none focus:border-lime-400"
         >
           <option value="calories">
             Calories
@@ -179,66 +135,80 @@ const ListedWorkouts = () => {
             Duration
           </option>
         </select>
-
       </div>
 
-      {/* =========================
-          TODAY'S PLAN
-      ========================= */}
-      {activeTab === 'today' && (
-        <div>
+      {/* Tabs */}
+      <div className="tabs tabs-lift py-[30px]">
 
-          {sortedWorkouts.length > 0 ? (
+        {/* Today's Plan */}
+        <input
+          type="radio"
+          name="my_tabs_3"
+          className="tab"
+          aria-label="Today's Plan"
+          checked={activeTab === 'today'}
+          onChange={() => setActiveTab('today')}
+        />
 
-            sortedWorkouts.map((library: ILibrary) => (
-              <ListedWorkoutsCards
-                key={library.id}
-                library={library}
-                type="today"
-              />
-            ))
-
-          ) : (
-
-            <EmptyStateCard
-              title="NOTHING HERE YET"
-              description="Browse the library and add a lift to get today moving."
-              buttonText="Go to workouts"
-            />
-
+        <div className="tab-content p-6">
+          {activeTab === 'today' && (
+            <>
+              {sortedWorkouts.length > 0 ? (
+                sortedWorkouts.map(
+                  (library: ILibrary) => (
+                    <ListedWorkoutsCards
+                      key={library.id}
+                      library={library}
+                      type="today"
+                    />
+                  )
+                )
+              ) : (
+                <EmptyStateCard
+                  title="NOTHING HERE YET"
+                  description="Browse the library and add a lift to get today moving."
+                  buttonText="Go to workouts"
+                />
+              )}
+            </>
           )}
-
         </div>
-      )}
 
-      {/* =========================
-          SAVED
-      ========================= */}
-      {activeTab === 'saved' && (
-        <div>
+        {/* Saved */}
+        <input
+          type="radio"
+          name="my_tabs_3"
+          className="tab"
+          aria-label="Saved"
+          checked={activeTab === 'saved'}
+          onChange={() => setActiveTab('saved')}
+        />
 
-          {sortedWorkouts.length > 0 ? (
-
-            sortedWorkouts.map((library: ILibrary) => (
-              <ListedWorkoutsCards
-                key={library.id}
-                library={library}
-                type="saved"
-              />
-            ))
-
-          ) : (
-
-            <EmptyStateCard
-              title="NO SAVED WORKOUTS"
-              description="Save your favorite workouts and find them here."
-              buttonText="Browse workouts"
-            />
-
+        <div className="tab-content p-6">
+          {activeTab === 'saved' && (
+            <>
+              {sortedWorkouts.length > 0 ? (
+                sortedWorkouts.map(
+                  (library: ILibrary) => (
+                    <ListedWorkoutsCards
+                      key={library.id}
+                      library={library}
+                      type="saved"
+                    />
+                  )
+                )
+              ) : (
+                <EmptyStateCard
+                  title="NO SAVED WORKOUTS"
+                  description="Save your favorite workouts and find them here."
+                  buttonText="Browse workouts"
+                />
+              )}
+            </>
           )}
-
         </div>
-      )}
+
+      </div>
 
     </div>
   );

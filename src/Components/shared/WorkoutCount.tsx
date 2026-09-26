@@ -12,7 +12,7 @@ const WorkoutCount = () => {
 
                               {/* Plan */}
                               <Link
-                                        href="/my-plan"
+                                        href="/my-plan?type=plan"
                                         className="flex cursor-pointer items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-3"
                               >
                                         <span>Plan</span>
@@ -24,7 +24,7 @@ const WorkoutCount = () => {
 
                               {/* Saved */}
                               <Link
-                                        href="/my-plan"
+                                        href="/my-plan?type=saved"
                                         className="flex cursor-pointer items-center gap-1.5 rounded-full px-2 py-2 text-xs font-medium text-gray-400 transition hover:bg-[#1A2312] hover:text-[#C2F800] sm:px-3"
                               >
                                         <span>Saved</span>
