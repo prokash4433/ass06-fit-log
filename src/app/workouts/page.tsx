@@ -3,6 +3,7 @@ import React from "react";
  
 import { ILibrary } from "@/types/library.type";
 import LibraryCards from "@/Components/shared/LibraryCards";
+import Banner from "@/Components/homepage/Banner";
 
 const getLibrary = async () => {
        const res = await fetch("http://localhost:3000/data.json");
@@ -18,6 +19,9 @@ const Library = async () => {
        const libraryData = await getLibrary();
 
        return (
+               
+
+    
               <section className="container mx-auto px-4 py-16">
                      {/* Cards Grid */}
                      <h1 className="font-bold text-4xl ">THE LIBRARY</h1>
