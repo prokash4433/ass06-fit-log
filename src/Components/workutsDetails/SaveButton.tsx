@@ -28,7 +28,7 @@ const SaveButton = ({ library }: { library: ILibrary }) => {
           return (
                     <button
                               onClick={handleAddSave}
-                              className="flex items-center gap-2 rounded-lg border px-4 py-2.5 text-[10px] font-bold text-black bg-[#C2F800] transition-all duration-300 hover:border-[#C2F800] hover:bg-[#1A2312] hover:text-[#C2F800]"
+                              className="flex items-center gap-2 rounded-lg border px-4   text-[10px] font-bold text-black bg-[#C2F800] transition-all duration-300 hover:border-[#C2F800] hover:bg-[#1A2312] hover:text-[#C2F800] w-full py-3 sm:w-auto"
                     >
                               <span>♡</span>
                               Save for later

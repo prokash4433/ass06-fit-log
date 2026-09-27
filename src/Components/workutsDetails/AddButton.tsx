@@ -28,7 +28,7 @@ const AddButton = ({ library }: { library: ILibrary }) => {
 
 return (
           <button
-                    className="flex items-center gap-2 rounded-lg bg-[#C2F800] px-4 py-2.5 text-[10px] font-bold text-black transition-all duration-300 hover:bg-[#1A2312] hover:text-[#C2F800]"
+                    className="flex items-center gap-2 rounded-lg bg-[#C2F800] px-4 py-2.5 text-[10px] font-bold text-black transition-all duration-300 hover:bg-[#1A2312] hover:text-[#C2F800 w-full py-3 sm:w-auto]"
                     onClick={handleAddWorkouts}
           >
                     <span>▣</span>
