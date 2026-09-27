@@ -12,9 +12,7 @@ interface WorkoutDetailsContentProps {
   id: string;
 }
 
-const WorkoutDetailsContent = ({
-  id,
-}: WorkoutDetailsContentProps) => {
+const WorkoutDetailsContent = ({ id }: WorkoutDetailsContentProps) => {
   const [library, setLibrary] = useState<ILibrary | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -51,7 +49,7 @@ const WorkoutDetailsContent = ({
   // ================= LOADING =================
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0d0f12] px-4 text-center text-white">
+      <div className="flex min-h-screen items-center justify-center bg-[#0d0f12] text-white">
         <span className="loading loading-spinner loading-lg text-[#C2F800]" />
       </div>
     );
@@ -62,9 +60,7 @@ const WorkoutDetailsContent = ({
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#0d0f12] px-4 text-center text-white">
         <div>
-          <h1 className="text-2xl font-bold">
-            Workout Not Found
-          </h1>
+          <h1 className="text-2xl font-bold">Workout Not Found</h1>
 
           <p className="mt-2 text-sm text-[#8e929c]">
             The workout you are looking for does not exist.
@@ -76,14 +72,25 @@ const WorkoutDetailsContent = ({
 
   return (
     <div className="min-h-screen bg-[#0d0f12] text-white">
-      <main className="px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+      <main className="px-3 py-3 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
         <div className="mx-auto max-w-6xl">
 
           {/* ================= MAIN GRID ================= */}
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-8">
+          <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-8">
 
             {/* ================= IMAGE ================= */}
-            <div className="relative h-[220px] w-full overflow-hidden rounded-xl sm:h-[340px] md:h-[420px] lg:h-[540px]">
+            <div
+              className="
+                relative
+                h-[150px]
+                w-full
+                overflow-hidden
+                rounded-xl
+                sm:h-[340px]
+                md:h-[420px]
+                lg:h-[540px]
+              "
+            >
               <Image
                 src={library.image}
                 alt={library.name}
@@ -97,22 +104,34 @@ const WorkoutDetailsContent = ({
             <div className="flex min-w-0 flex-col">
 
               {/* ================= TITLE ================= */}
-              <h1 className="text-xl font-extrabold uppercase leading-tight tracking-tight sm:text-2xl md:text-3xl">
+              <h1 className="text-lg font-extrabold uppercase leading-tight tracking-tight sm:text-2xl md:text-3xl">
                 {library.name}
               </h1>
 
               {/* ================= DESCRIPTION ================= */}
-              <p className="mt-1 max-w-xl text-[11px] leading-4 text-[#8e929c] sm:text-xs">
+              <p className="mt-1 max-w-xl text-[10px] leading-4 text-[#8e929c] sm:text-xs">
                 {library.description ||
                   "A compound press that builds chest, triceps, and pressing power from a stable bench."}
               </p>
 
               {/* ================= MUSCLE GROUPS ================= */}
-              <div className="mt-2 flex flex-wrap gap-1.5">
+              <div className="mt-1.5 flex flex-wrap gap-1">
                 {library.muscleGroups.map((muscle: string) => (
                   <span
                     key={muscle}
-                    className="rounded-full bg-[#C2F800] px-3 py-1 text-[8px] font-extrabold uppercase text-black sm:text-[9px]"
+                    className="
+                      rounded-full
+                      bg-[#C2F800]
+                      px-2.5
+                      py-0.5
+                      text-[7px]
+                      font-extrabold
+                      uppercase
+                      text-black
+                      sm:px-3
+                      sm:py-1
+                      sm:text-[9px]
+                    "
                   >
                     {muscle}
                   </span>
@@ -120,106 +139,113 @@ const WorkoutDetailsContent = ({
               </div>
 
               {/* ================= DETAILS ================= */}
-              <div className="mt-3 overflow-hidden rounded-xl border border-[#252932] bg-[#15181e]">
+              <div className="mt-2 overflow-hidden rounded-lg border border-[#252932] bg-[#15181e]">
 
                 {/* Equipment */}
-                <div className="flex items-center justify-between gap-3 border-b border-[#252932] px-3 py-2 sm:px-4 sm:py-2.5">
-                  <span className="text-[9px] font-semibold uppercase tracking-wide text-[#8e929c] sm:text-[11px]">
+                <div className="flex items-center justify-between border-b border-[#252932] px-3 py-1.5 sm:px-4 sm:py-2.5">
+                  <span className="text-[8px] font-semibold uppercase text-[#8e929c] sm:text-[11px]">
                     Equipment
                   </span>
 
-                  <span className="max-w-[60%] text-right text-[10px] font-bold text-[#f1f1f1] sm:text-xs">
+                  <span className="text-[9px] font-bold text-white sm:text-xs">
                     {library.equipment}
                   </span>
                 </div>
 
                 {/* Difficulty */}
-                <div className="flex items-center justify-between gap-3 border-b border-[#252932] px-3 py-2 sm:px-4 sm:py-2.5">
-                  <span className="text-[9px] font-semibold uppercase tracking-wide text-[#8e929c] sm:text-[11px]">
+                <div className="flex items-center justify-between border-b border-[#252932] px-3 py-1.5 sm:px-4 sm:py-2.5">
+                  <span className="text-[8px] font-semibold uppercase text-[#8e929c] sm:text-[11px]">
                     Difficulty
                   </span>
 
-                  <span className="text-right text-[10px] font-bold text-[#f1f1f1] sm:text-xs">
+                  <span className="text-[9px] font-bold text-white sm:text-xs">
                     {library.difficulty}
                   </span>
                 </div>
 
                 {/* Sets */}
-                <div className="flex items-center justify-between gap-3 border-b border-[#252932] px-3 py-2 sm:px-4 sm:py-2.5">
-                  <span className="text-[9px] font-semibold uppercase tracking-wide text-[#8e929c] sm:text-[11px]">
+                <div className="flex items-center justify-between border-b border-[#252932] px-3 py-1.5 sm:px-4 sm:py-2.5">
+                  <span className="text-[8px] font-semibold uppercase text-[#8e929c] sm:text-[11px]">
                     Sets
                   </span>
 
-                  <span className="text-right text-[10px] font-bold text-[#f1f1f1] sm:text-xs">
+                  <span className="text-[9px] font-bold text-white sm:text-xs">
                     {library.sets}
                   </span>
                 </div>
 
                 {/* Reps */}
-                <div className="flex items-center justify-between gap-3 border-b border-[#252932] px-3 py-2 sm:px-4 sm:py-2.5">
-                  <span className="text-[9px] font-semibold uppercase tracking-wide text-[#8e929c] sm:text-[11px]">
+                <div className="flex items-center justify-between border-b border-[#252932] px-3 py-1.5 sm:px-4 sm:py-2.5">
+                  <span className="text-[8px] font-semibold uppercase text-[#8e929c] sm:text-[11px]">
                     Reps
                   </span>
 
-                  <span className="text-right text-[10px] font-bold text-[#f1f1f1] sm:text-xs">
+                  <span className="text-[9px] font-bold text-white sm:text-xs">
                     {library.reps}
                   </span>
                 </div>
 
                 {/* Duration */}
-                <div className="flex items-center justify-between gap-3 border-b border-[#252932] px-3 py-2 sm:px-4 sm:py-2.5">
-                  <span className="text-[9px] font-semibold uppercase tracking-wide text-[#8e929c] sm:text-[11px]">
+                <div className="flex items-center justify-between border-b border-[#252932] px-3 py-1.5 sm:px-4 sm:py-2.5">
+                  <span className="text-[8px] font-semibold uppercase text-[#8e929c] sm:text-[11px]">
                     Duration
                   </span>
 
-                  <span className="text-right text-[10px] font-bold text-[#f1f1f1] sm:text-xs">
+                  <span className="text-[9px] font-bold text-white sm:text-xs">
                     {library.duration} min
                   </span>
                 </div>
 
                 {/* Calories */}
-                <div className="flex items-center justify-between gap-3 border-b border-[#252932] px-3 py-2 sm:px-4 sm:py-2.5">
-                  <span className="text-[9px] font-semibold uppercase tracking-wide text-[#8e929c] sm:text-[11px]">
+                <div className="flex items-center justify-between border-b border-[#252932] px-3 py-1.5 sm:px-4 sm:py-2.5">
+                  <span className="text-[8px] font-semibold uppercase text-[#8e929c] sm:text-[11px]">
                     Calories
                   </span>
 
-                  <span className="text-right text-[10px] font-bold text-[#f1f1f1] sm:text-xs">
+                  <span className="text-[9px] font-bold text-white sm:text-xs">
                     {library.caloriesBurned} kcal
                   </span>
                 </div>
 
                 {/* Rating */}
-                <div className="flex items-center justify-between gap-3 px-3 py-2 sm:px-4 sm:py-2.5">
-                  <span className="text-[9px] font-semibold uppercase tracking-wide text-[#8e929c] sm:text-[11px]">
+                <div className="flex items-center justify-between px-3 py-1.5 sm:px-4 sm:py-2.5">
+                  <span className="text-[8px] font-semibold uppercase text-[#8e929c] sm:text-[11px]">
                     Rating
                   </span>
 
-                  <span className="text-right text-[10px] font-bold text-[#f1f1f1] sm:text-xs">
+                  <span className="text-[9px] font-bold text-white sm:text-xs">
                     {library.rating}
                   </span>
                 </div>
               </div>
 
               {/* ================= INSTRUCTIONS ================= */}
-              <div className="mt-3">
-                <h2 className="text-[9px] font-extrabold uppercase tracking-wide text-white sm:text-[11px]">
+              <div className="mt-2">
+                <h2 className="text-[8px] font-extrabold uppercase text-white sm:text-[11px]">
                   Instructions
                 </h2>
 
-                <ol className="mt-1.5 space-y-1">
+                <ol className="mt-1 space-y-0.5">
                   {library.instructions?.map(
                     (instruction: string, index: number) => (
                       <li
                         key={index}
-                        className="flex items-start gap-2 text-[8px] leading-3.5 text-[#9a9fa9] sm:text-[10px] sm:leading-4"
+                        className="
+                          flex
+                          items-start
+                          gap-1.5
+                          text-[7px]
+                          leading-3
+                          text-[#9a9fa9]
+                          sm:text-[10px]
+                          sm:leading-4
+                        "
                       >
                         <span className="shrink-0 text-[#666b76]">
                           {index + 1}.
                         </span>
 
-                        <span className="min-w-0">
-                          {instruction}
-                        </span>
+                        <span>{instruction}</span>
                       </li>
                     )
                   )}
@@ -227,7 +253,7 @@ const WorkoutDetailsContent = ({
               </div>
 
               {/* ================= BUTTONS ================= */}
-              <div className="mt-4 flex w-full flex-col gap-2 pb-6 sm:flex-row">
+              <div className="mt-2 flex w-full flex-col gap-2 pb-4 sm:flex-row">
                 <div className="w-full sm:w-auto">
                   <AddButton library={library} />
                 </div>
