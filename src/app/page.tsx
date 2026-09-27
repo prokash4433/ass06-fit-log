@@ -1,15 +1,20 @@
-import dynamic from 'next/dynamic'
- import Banner from '@/Components/homepage/Banner';
-import Library from '@/Components/homepage/Library';
-import React from 'react';
- 
- const page = () => {
+"use client";
+
+import dynamic from "next/dynamic";
+import Banner from "@/Components/homepage/Banner";
+import React from "react";
+
+const Library = dynamic(() => import("@/Components/homepage/Library"), {
+  ssr: false,
+});
+
+const page = () => {
   return (
     <div>
-      <Banner/>
-      <Library/>
+      <Banner />
+      <Library />
     </div>
   );
- };
- 
- export default page;
+};
+
+export default page;
