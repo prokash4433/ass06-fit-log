@@ -7,6 +7,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import RemoveButton from './RemoveButton';
+import MarkAsDoneButton from './MarkAsDoneButton';
 
 interface IListedWourkoutsCardsProps {
           library: ILibrary;
@@ -84,12 +85,7 @@ const ListedWorkoutsCards = ({
           </Link>
 
                      {/* Mark as Done */}
-          <button
-          type="button"
-          className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-lime-400 px-3 py-2 text-xs font-semibold text-black transition hover:bg-lime-300 sm:gap-2 sm:px-5 sm:text-sm lg:flex-none">
-          <span>✓</span>
-          <span>Mark as Done</span>
-          </button>
+          <MarkAsDoneButton />
 
                     {/* Remove */}
           <RemoveButton
