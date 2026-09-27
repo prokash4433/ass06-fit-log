@@ -18,18 +18,17 @@ const ListedWorkouts = () => {
                     <div>
 
                               {/* Today's Plan */}
-                              <div>
-                                        <h2 className="mb-4 text-xl font-bold text-white">
-                                                  Today&apos;s Plan
-                                        </h2>
+                    <div>
+                              <h2 className="mb-4 text-xl font-bold text-white">
+                              Today&apos;s Plan
+                              </h2>
 
-                                        {addWorkouts.length > 0 ? (
-                                                  addWorkouts.map((library: ILibrary) => (
-                                                            <ListedWorkoutsCards
-                                                                      key={library.id}
-                                                                      library={library}
-                                                                      type="today"
-                                                            />
+                              {addWorkouts.length > 0 ? (
+                              addWorkouts.map((library: ILibrary) => (
+                              <ListedWorkoutsCards
+                                         key={library.id}
+                                        library={library}
+                                        type="today"/>
                                                   ))
                                         ) : (
                                                   <p className="text-gray-400">
@@ -46,10 +45,10 @@ const ListedWorkouts = () => {
 
                                         {savedlist.length > 0 ? (
                                                   savedlist.map((library: ILibrary) => (
-                                                            <ListedWorkoutsCards
-                                                                      key={library.id}
-                                                                      library={library}
-                                                                      type="saved"
+                                                   <ListedWorkoutsCards
+                                                            key={library.id}
+                                                            library={library}
+                                                            type="saved"
                                                             />
                                                   ))
                                         ) : (

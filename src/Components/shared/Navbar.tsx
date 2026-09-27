@@ -3,6 +3,7 @@ import React from 'react';
 import logo from '@/assets/logo.png';
 import Link from 'next/link';
 import WorkoutCount from './WorkoutCount';
+import ActiveLink from './ActiveLink';
  
 
 const Navbar = () => {
@@ -68,19 +69,15 @@ const Navbar = () => {
                      <div className="flex items-center gap-1    p-1">
 
                     
-                      <Link
-                        href="/workouts"
-                        className="cursor-pointer rounded-full px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800]"
-                      >
+                      <ActiveLink
+                        href="/workouts">
                         Workout
-                      </Link>
+                      </ActiveLink>
 
-                      <Link
-                        href="/my-plan"
-                        className="cursor-pointer rounded-full px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#1A2312] hover:text-[#C2F800]"
-                      >
+                      <ActiveLink 
+                        href="/my-plan">
                         My Plan
-                      </Link>
+                      </ActiveLink>
 
                     </div>
                     </div>

@@ -112,6 +112,10 @@ const ListedWorkouts = () => {
 
       </div>
 
+      
+      
+      
+      
       {/* Sort */}
       <div className="flex justify-end py-5">
         <select
@@ -121,7 +125,7 @@ const ListedWorkouts = () => {
               e.target.value as SortOption
             )
           }
-          className="w-full max-w-[220px] cursor-pointer rounded-xl border border-[#292c35] bg-[#15171d] px-4 py-3 text-sm text-white outline-none focus:border-lime-400"
+          className="w-full max-w-[220px] cursor-pointer rounded-xl border border-[#292c35] bg-[#1A2312] hover:text-[#C2F800] text-[#C2F800] px-4 py-3 text-sm font-semibold  outline-none focus:border-lime-400"
         >
           <option value="calories">
             Calories
@@ -137,6 +141,8 @@ const ListedWorkouts = () => {
         </select>
       </div>
 
+      
+      
       {/* Tabs */}
       <div className="tabs tabs-lift py-[30px]">
 
@@ -144,7 +150,7 @@ const ListedWorkouts = () => {
         <input
           type="radio"
           name="my_tabs_3"
-          className="tab"
+          className="tab  rounded-2xl   transition-all duration-200 hover:bg-[#1A2312] hover:text-[#C2F800] checked:bg-[#C2F800] checked:text-black font-semibold  bg-[#1A2312] text-[#C2F800] "
           aria-label="Today's Plan"
           checked={activeTab === 'today'}
           onChange={() => setActiveTab('today')}
@@ -178,7 +184,7 @@ const ListedWorkouts = () => {
         <input
           type="radio"
           name="my_tabs_3"
-          className="tab"
+          className="tab  rounded-2xl   transition-all duration-200 hover:bg-[#1A2312] hover:text-[#C2F800] checked:bg-[#C2F800] checked:text-black font-semibold  bg-[#1A2312] text-[#C2F800]"
           aria-label="Saved"
           checked={activeTab === 'saved'}
           onChange={() => setActiveTab('saved')}
