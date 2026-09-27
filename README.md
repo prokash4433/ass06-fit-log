@@ -7,7 +7,7 @@ The project focuses on providing a clean, simple, and user-friendly fitness expe
 
 🚀 Live Project
 
-🔗 Live Demo: Add your deployed website link here
+🔗 Live Demo: https://ass06-fit-log-xq08.vercel.app/
 
 🔗 GitHub Repository:  https://github.com/prokash4433/ass06-fit-log/tree/main
 
