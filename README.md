@@ -9,7 +9,7 @@ The project focuses on providing a clean, simple, and user-friendly fitness expe
 
 🔗 Live Demo: Add your deployed website link here
 
-🔗 GitHub Repository: Add your GitHub repository link here
+🔗 GitHub Repository:  https://github.com/prokash4433/ass06-fit-log/tree/main
 
 
 
