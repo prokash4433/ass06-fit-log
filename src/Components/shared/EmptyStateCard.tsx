@@ -24,10 +24,10 @@ const EmptyStateCard = ({
                                                   {description}
                                         </p>
                                          
-                                         <Link href="/workouts">
-                                                  <button className="mt-6 rounded-full hover:text-[#C2F800] hover:bg-[#1A2312] px-6 py-3 text-sm font-bold text-black bg-[#C2F800] transition hover:scale-105">
+                                        <Link href={'workouts/#library'}
+                                                    className="mt-6 rounded-full hover:text-[#C2F800] hover:bg-[#1A2312] px-6 py-3 text-sm font-bold text-black bg-[#C2F800] transition hover:scale-105">
                                                   {buttonText}
-                                        </button>
+                                         
                                         </Link>
 
                               </div>

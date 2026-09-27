@@ -1,6 +1,11 @@
 'use client';
 
-import React, { createContext, ReactNode, useState } from 'react';
+import React, {
+          createContext,
+          ReactNode,
+          useState,
+          useEffect,
+} from 'react';
 
 import { toast } from 'react-toastify';
 
@@ -10,7 +15,19 @@ export const WorkoutsContext = createContext<any>({});
 
 const WorkoutsProvider = ({ children }: { children: ReactNode }) => {
           const [addWorkouts, setAddWorkouts] = useState<ILibrary[]>([]);
+
           const [savedlist, setSavedlist] = useState<ILibrary[]>([]);
+
+          // Loading state
+          const [loading, setLoading] = useState(true);
+
+          useEffect(() => {
+                    const timer = setTimeout(() => {
+                              setLoading(false);
+                    }, 500);
+
+                    return () => clearTimeout(timer);
+          }, []);
 
           const removeWorkout = (
                     id: number,
@@ -36,9 +53,13 @@ const WorkoutsProvider = ({ children }: { children: ReactNode }) => {
           const shareData = {
                     addWorkouts,
                     setAddWorkouts,
+
                     savedlist,
                     setSavedlist,
+
                     removeWorkout,
+
+                    loading,
           };
 
           return (
