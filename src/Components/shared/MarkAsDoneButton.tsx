@@ -10,9 +10,7 @@ const MarkAsDoneButton = () => {
           const handleMarkAsDone = () => {
                     setIsCompleted(true);
 
-                    toast.success('Logged completion. Good job!', {
-                              duration: 3000,
-                    });
+                    toast.success('Logged completion. Good job!');
           };
 
           return (
