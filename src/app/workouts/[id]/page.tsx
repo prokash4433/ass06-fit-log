@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import AddButton from '@/Components/workutsDetails/AddButton';
 import SaveButton from '@/Components/workutsDetails/SaveButton';
 import { ILibrary } from '@/types/library.type';

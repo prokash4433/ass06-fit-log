@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
  import Banner from '@/Components/homepage/Banner';
 import Library from '@/Components/homepage/Library';
 import React from 'react';
