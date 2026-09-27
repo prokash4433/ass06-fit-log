@@ -30,14 +30,14 @@ The interface is designed to be responsive and accessible across mobile, tablet,
 
 
 🛠️ Technologies Used
-Next.js
-React
-TypeScript
-Tailwind CSS
-HTML5
-React Context API
-Next.js App Router
-Git & GitHub
+⚛️ React.js
+▲ Next.js
+📘 TypeScript
+🎨 Tailwind CSS
+🌐 HTML5
+🔄 React Context API
+🧭 Next.js App Router
+🔧 Git & GitHub
 
 
 Key Features
