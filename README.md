@@ -40,7 +40,7 @@ The interface is designed to be responsive and accessible across mobile, tablet,
 🔧 Git & GitHub
 
 
-Key Features
+Project Key Features:-
 1. 🏋️ Browse Workouts
 
 Users can explore a collection of workout exercises from the workout library and view useful workout information.
